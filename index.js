@@ -16,7 +16,13 @@ export default {
         { headers: { "content-type": "text/html" } }
       )
     }
-
+    
+    if (url.pathname === "/api/student") {
+      return new Response(
+        `Tukaj je stran student`
+      )
+    }
+    
     if (url.pathname === "/api/time") {
       return Response.json({
         time: new Date().toISOString()
@@ -26,7 +32,7 @@ export default {
     if (url.pathname === "/api/hello") {
       const name = url.searchParams.get("name") || "guest"
       return Response.json({
-        message: `Hello ${name}`
+        message: `Hello ${name}, tukaj je pa še sprememba json-a?`
       })
     }
 
